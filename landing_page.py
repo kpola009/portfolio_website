@@ -26,7 +26,6 @@ def load_img(img):
 
 with st.sidebar:
 
-    #TODO Add Picture here
     st.markdown("<h1>KETUL POLARA</h1>", unsafe_allow_html=True)
 
     pages = ["ABOUT ME", "EDUCATION", "EXPERIENCE", "PROJECTS"]
