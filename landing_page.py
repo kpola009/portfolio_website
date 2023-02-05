@@ -429,8 +429,6 @@ if section == "PROJECTS":
                        """, unsafe_allow_html=True)
 
 
-
-        #TODO: High computation time or poor results and need to add existing function also
         st.subheader("2. GAN (Generative Adversarial Network) (Paper2Code)")
         st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
         st.write("As the name suggests, GAN are generative models which are built using an adversarial process, in which two models are built"
