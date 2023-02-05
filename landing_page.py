@@ -38,7 +38,7 @@ with st.sidebar:
 if section == 'ABOUT ME':
     # TODO thing about this description since you copied from sagar
     st.markdown("<h2>ABOUT ME</h2>", unsafe_allow_html=True)
-    picture, content = st.beta_columns([1, 1])
+    picture, content = st.columns([1, 1])
     with picture:
         header_html_my_picture = "<img src='data:image/png;base64,{}' class='img-fluid' width='234.25' height='280.5' style='display: block;margin-top: 10px'>".format(
             img_to_bytes("images/1.jpg")
@@ -52,7 +52,7 @@ if section == 'ABOUT ME':
         st.write("Name: Ketul Polara")
         st.write("Email: kpola009@fiu.edu")
 
-    col1, col2 = st.beta_columns([1, 1])
+    col1, col2 = st.columns([1, 1])
 
     with col1:
         st.markdown("""
