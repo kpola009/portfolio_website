@@ -55,8 +55,11 @@ if section == 'ABOUT ME':
     col1, col2 = st.beta_columns([1, 1])
 
     with col1:
-        if st.button('Github'):
-            webbrowser.open_new_tab("https://github.com/kpola009")
+        st.markdown("""
+                   <a href="https://github.com/kpola009" target = "_blank"> 
+                       <button style="background-color:GreenYellow;">Github</button> 
+                   </a>
+               """, unsafe_allow_html=True)
 
     # TODO Add a function to download your resume
     with col2:
@@ -68,7 +71,7 @@ if section == 'EDUCATION':
     ### EDUCATION Section
     st.markdown("<h2>EDUCATION</h2>", unsafe_allow_html=True)
     st.write("")
-    education_col1, education_col2 = st.beta_columns([1,2])
+    education_col1, education_col2 = st.columns([1,2])
 
     header_html_master = "<img src='data:image/png;base64,{}' class='img-fluid' width='180' height='81' style='display: block;margin-top: 110px'>".format(
         img_to_bytes("images/fiu-alone.png")
@@ -94,7 +97,7 @@ if section == 'EDUCATION':
     st.write("")
     st.write("")
 
-    education_b_col1, education_b_col2 = st.beta_columns([1,2])
+    education_b_col1, education_b_col2 = st.columns([1,2])
 
     with education_b_col1:
         st.markdown(
@@ -114,7 +117,7 @@ if section == "EXPERIENCE":
     st.markdown("<h2>EXPERIENCE</h2>", unsafe_allow_html=True)
     st.write("")
 
-    experience_col1, experience_col2 = st.beta_columns([1,2])
+    experience_col1, experience_col2 = st.columns([1,2])
 
     header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 150px'>".format(
         img_to_bytes("images/Energy_Systems_Lab_Logo_Final-e1472763643607.png")
@@ -148,7 +151,7 @@ if section == "PROJECTS":
             "<ul><li>Built various ML Models such as DecisionTree Classifier and XGBoost Classifier with Undersampling, Oversampling, and SMOTE sampling technique to predict stroke in patient based on gender, age, smoking habit, and other existing conditions.</li>",
             unsafe_allow_html=True)
 
-        with st.beta_expander("Project Report"):
+        with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
             st.write("As per the Centre for Disease Control and Prevention website a stroke, sometimes also known as brain attack, occurs when something blocks blood supply to part of the brain or when a blood vessel in the brain bursts. Which can result into permanent or lasting damage into the brain, sometimes it also causes long-term disability, or even death. According to the World Health Organization stroke is 2nd leading cause of death globally, responsible for around 11% of total deaths.")
             st.write("Dataset: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset ")
@@ -156,7 +159,7 @@ if section == "PROJECTS":
 
             st.markdown("<h3>Data Description</h3>", unsafe_allow_html=True)
             st.write("")
-            data_des_col1, data_des_col2 = st.beta_columns([1,1])
+            data_des_col1, data_des_col2 = st.columns([1,1])
 
             header_html_data_des_df = "<img src='data:image/png;base64,{}' class='img-fluid' width='572.5' height='95' style='display: block;margin-top: 20px'>".format(
                 img_to_bytes("images/Projects Content/Stroke Prediction/df.png")
@@ -247,15 +250,19 @@ if section == "PROJECTS":
             st.write("")
             st.markdown("<p>For our project <b>XGB with undersampling</b> is best since if our model incorretly label 'stroke' does not affect patient that much rather being labeling 'non-stroke' in case of 'stroke'. Plus <b>XGB with undersampling</b> model correctly identiifies 81% of cases being 'stroke' when it is 'stroke'.</p>", unsafe_allow_html=True)
             st.write("See the whole code here")
-            if st.button('Github'):
-                webbrowser.open_new_tab("https://github.com/kpola009/Stroke-Prediction")
+            st.markdown("""
+                               <a href="https://github.com/kpola009/Stroke-Prediction" target = "_blank"> 
+                                   <button style="background-color:GreenYellow;">Github</button>
+                               </a>
+                           """, unsafe_allow_html=True)
+            st.write(" ")
 
 
         st.subheader("2. Segmenting Miami Areas")
         st.markdown(
             "<ul><li>The goal of this project is to build a K-Means clustering model to group Miami zipcodes based on nearby venue data.</li>",
             unsafe_allow_html=True)
-        with st.beta_expander("Project Report"):
+        with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
             st.write("I did this certification on coursera offered by IBM, In which we had to submit a capstone project on segmenting neighborhood of "
                      "toronto city. In this notebook I am performing similar tasks as in capstone project to demonstrate skills which I gained through the course.")
@@ -345,15 +352,19 @@ if section == "PROJECTS":
             st.write("Result: As from the map all the zipcodes which are similar based on their nearby venues are grouped into"
                      " same color.")
             st.write("See the whole code here")
-            if st.button('Github '):
-                webbrowser.open_new_tab("https://github.com/kpola009/Miami-Area-Segmenting-with-K-Means")
+            st.markdown("""
+                               <a href="https://github.com/kpola009/Miami-Area-Segmenting-with-K-Means" target = "_blank"> 
+                                   <button style="background-color:GreenYellow;">Github</button>
+                               </a>
+                           """, unsafe_allow_html=True)
+            st.write("")
 
         st.subheader("3. Customer Default Prediction")
         st.markdown(
             "<ul><li>The Goal of this project is to predict how likely a customer is going to default, using historical customer data, This project can "
             " be identified as binary classification problem, which was solved using Logistic Regression and Random Forest.</li>",
             unsafe_allow_html=True)
-        with st.beta_expander("Project Report"):
+        with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
 
 
@@ -368,7 +379,7 @@ if section == "PROJECTS":
                  ". This is a binary classification problem which was solved by training convolution neural network (CNN) and leveraging"
                  " transfer learning.")
 
-        with st.beta_expander("Try it yourself"):
+        with st.expander("Try it yourself"):
             st.write("Pneumonia is a kind of lung infection, that can cause mild to severe illness. By American Thoracic Society "
                      " report, pneumonia is number 1 reason for US children in hospital. About 1 million adults seek care in for pneumonia "
                      "every year, form which 50,000 people die due to pneumonia.")
@@ -377,7 +388,7 @@ if section == "PROJECTS":
                      " physical exam, and test result. Sometime it is hard to diagnose pneumonia due to pneumonia haveing same  symptoms as"
                      " cold or flu which make problem worth solving.")
 
-            image1, image2, image3 = st.beta_columns([1,1,1])
+            image1, image2, image3 = st.columns([1,1,1])
 
             header_html_pro_image1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
                 img_to_bytes("images/Projects Content/Pneumonia Classification/IM-0187-0001.jpeg")
@@ -411,8 +422,11 @@ if section == "PROJECTS":
                     st.write("PREDICTION: NORMAL")
 
         st.write("See the whole code here")
-        if st.button('Github  '):
-            webbrowser.open_new_tab("https://github.com/kpola009/Chest-X-Ray-Pneumonia-Classification-using-Pytorch-and-Tensorflow")
+        st.markdown("""
+                           <a href="https://github.com/kpola009/Chest-X-Ray-Pneumonia-Classification-using-Pytorch-and-Tensorflow" target = "_blank"> 
+                               <button style="background-color:GreenYellow;">Github</button>
+                           </a>
+                       """, unsafe_allow_html=True)
 
 
 
@@ -425,11 +439,11 @@ if section == "PROJECTS":
         st.write("Here Model G is trained such that, G generates data which D cannot discriminate whereas model D"
                  " is trained such that, it correctly discriminates generated data by G. Result of this adversarial process"
                  " generates data which follows/similar to training data distribution.")
-        with st.beta_expander("Try it yourself"):
+        with st.expander("Try it yourself"):
             st.caption(
                 "Since GAN can be computationally heavy, this might take little time to show the output, Plus we will reduced the dimension of the image to address the computation "
                 "time for this project.")
-            button_upload, button_exist = st.beta_columns([1,1])
+            button_upload, button_exist = st.columns([1,1])
 
             with button_upload:
                image_button = st.button('Upload Image')
@@ -468,8 +482,11 @@ if section == "PROJECTS":
                 st.write("existing")
 
         st.write("See the whole code here")
-        if st.button('Github   '):
-            webbrowser.open_new_tab("https://github.com/kpola009/Paper2Code-GAN")
+        st.markdown("""
+            <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank"> 
+                <button style="background-color:GreenYellow;">Github</button> 
+            </a>
+        """, unsafe_allow_html=True)
 
 
 
