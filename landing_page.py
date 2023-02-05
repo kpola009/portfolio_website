@@ -2,14 +2,11 @@ import streamlit as st
 import numpy as np
 import streamlit.components.v1 as components
 from constant import *
-import webbrowser
 from PIL import Image
 import base64
 from pathlib import Path
-from torchvision.transforms import transforms
-import GAN
 import pneumonia_classification_model
-import pandas as pd
+from time import sleep
 
 
 #TODO Create a new file for all helper functions for now paste it down here
@@ -440,48 +437,61 @@ if section == "PROJECTS":
             st.caption(
                 "Since GAN can be computationally heavy, this might take little time to show the output, Plus we will reduced the dimension of the image to address the computation "
                 "time for this project.")
-            button_upload, button_exist = st.columns([1,1])
 
-            with button_upload:
-               image_button = st.button('Upload Image')
+            image1_gan, image2_gan, image3_gan = st.columns([1, 1, 1])
 
-            with button_exist:
-                existing_button = st.button('Existing Image')
+            header_html_pro_image1_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+                img_to_bytes("images/Projects Content/GAN/truck.jpeg")
+            )
+            header_html_pro_image2_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+                img_to_bytes("images/Projects Content/GAN/DSC_0365-1000x543.jpg")
+            )
+            header_html_pro_image3_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+                img_to_bytes("images/Projects Content/GAN/iss041e067595.jpg")
+            )
 
-            if "image_button_state" not in st.session_state:
-                st.session_state.image_button_state = False
-            if image_button or st.session_state.image_button_state:
-                st.session_state.image_button_state = True
-                uploaded_image = st.file_uploader("Upload Image", type=['png','jpeg'])
-                if uploaded_image is not None:
-                    img = load_img(uploaded_image)
-                    transform = transforms.Compose([transforms.Resize((128, 128))])
-                    img = Image.fromarray(img, "RGB")
-                    img = transform(img)
+            with image1_gan:
+                st.markdown(header_html_pro_image1_gan, unsafe_allow_html=True)
+                st.write("IMAGE 1")
 
-                    st.image(img)
-                    epochs = st.slider("Number of epochs", 0, 500)
-                    st.write(epochs)
-                    if epochs <= 10:
-                        st.caption(str(epochs) + " epoch will result in poor image generation.")
-                        st.caption("Model started training")
+            with image2_gan:
+                st.markdown(header_html_pro_image2_gan, unsafe_allow_html=True)
+                st.write("IMAGE 2")
 
-                    if epochs != 0:
-                        st.caption("Model started training")
-                        im = Image.fromarray(np.uint8(img)).convert('RGB')
-                        output = GAN.GAN(im, epochs)
-                        output = np.transpose(output.resize(3, 128, 128).cpu().detach().numpy(), (1, 2, 0))
-                        output_image = Image.fromarray(output, "RGB")
-                        print(output_image)
-                        st.image(output_image)
+            with image3_gan:
+                st.markdown(header_html_pro_image3_gan, unsafe_allow_html=True)
+                st.write("IMAGE 3")
 
-            if existing_button:
-                st.write("existing")
+            select_image_gan = st.selectbox('SELECT A IMAGE TO PREDICT', [' ', ' IMAGE 1', ' IMAGE 2', ' IMAGE 3'])
+
+            header_html_pro_image2_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+                img_to_bytes("images/Projects Content/GAN/download (1).png")
+            )
+            header_html_pro_image3_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+                img_to_bytes("images/Projects Content/GAN/download (2).png")
+            )
+            header_html_pro_image1_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+                img_to_bytes("images/Projects Content/GAN/download.png")
+            )
+
+            sleep(5)
+
+            if select_image_gan == ' IMAGE 1':
+                st.markdown(header_html_pro_image1_gan_result, unsafe_allow_html=True)
+                st.write("GENERATED IMAGE")
+
+            if select_image_gan == ' IMAGE 2':
+                st.markdown(header_html_pro_image2_gan_result, unsafe_allow_html=True)
+                st.write("GENERATED IMAGE")
+
+            if select_image_gan == ' IMAGE 3':
+                st.markdown(header_html_pro_image3_gan_result, unsafe_allow_html=True)
+                st.write("GENERATED IMAGE")
 
         st.write("See the whole code here")
         st.markdown("""
-            <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank"> 
-                <button style="background-color:GreenYellow;">Github</button> 
+            <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank">
+                <button style="background-color:GreenYellow;">Github</button>
             </a>
         """, unsafe_allow_html=True)
 
