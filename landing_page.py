@@ -8,7 +8,6 @@ from pathlib import Path
 import pneumonia_classification_model
 from time import sleep
 
-
 #TODO Create a new file for all helper functions for now paste it down here
 def img_to_bytes(img_path):
     img_bytes = Path(img_path).read_bytes()
@@ -105,8 +104,6 @@ if section == 'EDUCATION':
         st.markdown("<h4>Florida International University</h4>", unsafe_allow_html=True)
         st.write("January 2017 - December 2020")
         st.write("Relevant Coursework: Component Software Development, Intermediate Java Programming, Database Systems, Database Admin, Operating Systems, UNIX System Admin, Enterprise IT Troubleshoot, Web Application Programming, Website Construction and Management.")
-
-
 
 ### EXPERIENCE Section
 if section == "EXPERIENCE":
@@ -258,6 +255,7 @@ if section == "PROJECTS":
         st.markdown(
             "<ul><li>The goal of this project is to build a K-Means clustering model to group Miami zipcodes based on nearby venue data.</li>",
             unsafe_allow_html=True)
+
         with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
             st.write("I did this certification on coursera offered by IBM, In which we had to submit a capstone project on segmenting neighborhood of "
@@ -363,8 +361,6 @@ if section == "PROJECTS":
         with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
 
-
-
     # TRY IT YOURSELF PROJECT
     if project_section == "TRY IT YOURSELF PROJECTS":
         st.header("TRY IT YOURSELF PROJECTS")
@@ -413,9 +409,9 @@ if section == "PROJECTS":
             if select_image is not None:
                 prediction = pneumonia_classification_model.classify_pneumonia(select_image)
                 if prediction == 1:
-                    st.write("PREDICTION: PNEUMONIA")
+                    st.write(select_image + " PREDICTION: PNEUMONIA")
                 elif prediction == 0:
-                    st.write("PREDICTION: NORMAL")
+                    st.write(select_image + " PREDICTION: NORMAL")
 
         st.write("See the whole code here")
         st.markdown("""
@@ -423,7 +419,6 @@ if section == "PROJECTS":
                                <button style="background-color:GreenYellow;">Github</button>
                            </a>
                        """, unsafe_allow_html=True)
-
 
         st.subheader("2. GAN (Generative Adversarial Network) (Paper2Code)")
         st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
@@ -494,16 +489,3 @@ if section == "PROJECTS":
                 <button style="background-color:GreenYellow;">Github</button>
             </a>
         """, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
