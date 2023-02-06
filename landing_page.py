@@ -51,14 +51,18 @@ if section == 'ABOUT ME':
 
     with col1:
         st.markdown("""
-                   <a href="https://github.com/kpola009" target = "_blank"> 
+                   <a href="images/Resume Ketul Polara .pdf" target = "_blank"> 
                        <button style="background-color:GreenYellow;">Github</button> 
                    </a>
                """, unsafe_allow_html=True)
 
     # TODO Add a function to download your resume
     with col2:
-        st.button('Resume')
+        st.markdown("""
+                           <a href="Resume Ketul Polara .pdf" target = "_blank"> 
+                               <button style="background-color:GreenYellow;">Resume</button> 
+                           </a>
+                       """, unsafe_allow_html=True)
 
     components.html(embed_component['linkedin'], height=310)
 
@@ -419,7 +423,7 @@ if section == "PROJECTS":
                                <button style="background-color:GreenYellow;">Github</button>
                            </a>
                        """, unsafe_allow_html=True)
-
+        st.write("")
         st.subheader("2. GAN (Generative Adversarial Network) (Paper2Code)")
         st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
         st.write("As the name suggests, GAN are generative models which are built using an adversarial process, in which two models are built"
@@ -428,6 +432,7 @@ if section == "PROJECTS":
         st.write("Here Model G is trained such that, G generates data which D cannot discriminate whereas model D"
                  " is trained such that, it correctly discriminates generated data by G. Result of this adversarial process"
                  " generates data which follows/similar to training data distribution.")
+
         with st.expander("Try it yourself"):
             st.caption(
                 "Since GAN can be computationally heavy, this might take little time to show the output, Plus we will reduced the dimension of the image to address the computation "
@@ -470,22 +475,22 @@ if section == "PROJECTS":
             )
 
             sleep(5)
+            if select_image is not None:
+                if select_image_gan == ' IMAGE 1':
+                    st.markdown(header_html_pro_image1_gan_result, unsafe_allow_html=True)
+                    st.write("GENERATED IMAGE")
 
-            if select_image_gan == ' IMAGE 1':
-                st.markdown(header_html_pro_image1_gan_result, unsafe_allow_html=True)
-                st.write("GENERATED IMAGE")
+                if select_image_gan == ' IMAGE 2':
+                    st.markdown(header_html_pro_image2_gan_result, unsafe_allow_html=True)
+                    st.write("GENERATED IMAGE")
 
-            if select_image_gan == ' IMAGE 2':
-                st.markdown(header_html_pro_image2_gan_result, unsafe_allow_html=True)
-                st.write("GENERATED IMAGE")
-
-            if select_image_gan == ' IMAGE 3':
-                st.markdown(header_html_pro_image3_gan_result, unsafe_allow_html=True)
-                st.write("GENERATED IMAGE")
+                if select_image_gan == ' IMAGE 3':
+                    st.markdown(header_html_pro_image3_gan_result, unsafe_allow_html=True)
+                    st.write("GENERATED IMAGE")
 
         st.write("See the whole code here")
         st.markdown("""
-            <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank">
-                <button style="background-color:GreenYellow;">Github</button>
-            </a>
-        """, unsafe_allow_html=True)
+                   <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank">
+                       <button style="background-color:GreenYellow;">Github</button>
+                   </a>
+               """, unsafe_allow_html=True)
