@@ -59,7 +59,7 @@ if section == 'ABOUT ME':
     # TODO Add a function to download your resume
     with col2:
         st.markdown("""
-                           <a href="Resume Ketul Polara .pdf" target = "_blank"> 
+                           <a href="https://github.com/kpola009/portfolio_website/blob/master/Resume%20Ketul%20Polara%20.pdf" target = "_blank"> 
                                <button style="background-color:GreenYellow;">Resume</button> 
                            </a>
                        """, unsafe_allow_html=True)
@@ -186,7 +186,7 @@ if section == "PROJECTS":
                 "<li>Also it was found that feature 'gender' had only 1 record of value 'other'. This record was dropped since it acts as a Outlier for "
                 "this dataset and it won't affect further analysis. </li>"
                 "<li>Plus, it was found, dataset contained 5 categorical features, which was converted into int using LabelEncoding.</li>"
-                "<li>Plus, it was found, target feature 'stroke' was highly unbalanced, to solve this problem different sampling techniques "
+                "<li>Plus, it was found, target feature 'stroke' was highly imbalanced, to solve this problem different sampling techniques "
                 "like SMOTE, undersampling, oversampling were used. With predefined weights for Machine Learning Algorithm.</li></ul>",
                 unsafe_allow_html=True)
 
@@ -215,7 +215,7 @@ if section == "PROJECTS":
 
             st.markdown("<h3>Machine Learning Algorithm Selection</h3>", unsafe_allow_html=True)
             st.write("For this project DecisionTree Classifier and XGBoost Classifier Models were selected. "
-                     "Reason behind choosing this models is both of them are tree based classifiers which known to work great with unbalanced dataset. ")
+                     "Reason behind choosing this models is both of them are tree based classifiers which known to work great with Imbalanced dataset. ")
 
             st.markdown("<h3>Results</h3>", unsafe_allow_html=True)
             st.write("To better understand results first I will define precision and recall")
@@ -287,7 +287,7 @@ if section == "PROJECTS":
             )
             st.write("")
 
-            st.subheader("Prepare Data for the Model")
+            st.subheader("b. Prepare Data for the Model")
             st.markdown("<h4>MIAMI ZIPCODE Data</h4>", unsafe_allow_html=True)
             header_html_pro_miami_zio = "<img src='data:image/png;base64,{}' class='img-fluid' width='500' height='185' style='display: block;margin-top: 10px; margin-left:30px'>".format(
                 img_to_bytes("images/Projects Content/Segmenting Miami/Zipcode.png")
@@ -364,6 +364,112 @@ if section == "PROJECTS":
             unsafe_allow_html=True)
         with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
+            st.write("Customer loan defaults refer to the failure of a borrower to repay a loan according to the agreed-upon terms. "
+                     " This can happen for a variety of reasons such as a change in financial circumstances. "
+                     " Loan defaults can have significant consequences for both the borrower and the lender. "
+                     " Understanding the causes of loan defaults and developing strategies to minimize them is a crucial aspect of responsible lending and credit risk management.")
+            st.write("In this project as mentioned, machine learning techniques were leveraged to predict the likelihood of customer defaulting. "
+                     " By training this Machine learning models on historical data, lender can identify patterns and trends that are associated with higher risk default such as specific "
+                     " demographic characteristics or financial behaviors.")
+
+            st.markdown("<h3>Data Description</h3>", unsafe_allow_html=True)
+            st.write("")
+            data_des_col1, data_des_col2 = st.columns([1, 1])
+
+            header_html_data_des_df_cp = "<img src='data:image/png;base64,{}' class='img-fluid' width='650' height='170' style='display: block;margin-top: 20px'>".format(
+                img_to_bytes("images/Projects Content/Customer Default/df.png")
+            )
+            header_html_data_des_df_info_cp = "<img src='data:image/png;base64,{}' class='img-fluid' width='124.165' height='256.1667' style='display: block;margin-left: 80px'>".format(
+                img_to_bytes("images/Projects Content/Customer Default/df_info.png")
+            )
+            st.markdown(
+                header_html_data_des_df_cp, unsafe_allow_html=True,
+            )
+            st.write("")
+
+            with data_des_col1:
+                st.markdown(
+                    header_html_data_des_df_info_cp, unsafe_allow_html=True,
+                )
+            with data_des_col2:
+                st.write("Number of records: 94000")
+                st.write("Number of features: 32")
+                st.write("All the features in the dataset have numeric datatype and anonymized.")
+
+            # st.write("")
+            st.markdown("<h3>EDA</h3>", unsafe_allow_html=True)
+
+            st.write("- Initially, we started by analyzing the relationships between features in our dataset using a correlation matrix, "
+                " since all of our features are numerical in nature. "
+                " A correlation matrix is a useful tool in data analysis as it provides a graphical representation of the relationships "
+                " between the numerical features. By computing the correlation coefficients between each pair of features, "
+                " the matrix enables us to identify features that are highly correlated with one another, giving us valuable "
+                " insights into the structure of the data. These insights can aid in feature selection and help us better understand the "
+                " relationships between the features.")
+
+            st.write("")
+            header_html_data_corr = "<img src='data:image/png;base64,{}' class='img-fluid' width='446.625' height='487.375' style='display: block;margin-left:35px'>".format(
+                img_to_bytes("images/Projects Content/Customer Default/corr.png")
+            )
+            st.markdown(
+                header_html_data_corr, unsafe_allow_html=True,
+            )
+            st.write("")
+            st.write("From the above corr matrix it was found, feature A22 and A24, A6 and A5, A10 and A9, A12 and A8 are highly correlated, by eliminating those features can result in better performing model.")
+
+            st.write("- Secondly, histograms and probability plots were employed to investigate the normality of all the features in the dataset. The histograms provide a visual representation of the distribution of each feature, while the probability plots allow for a more precise assessment of normality by comparing the observed feature values to a theoretical normal distribution. These tools help us determine if the features in the dataset are normally distributed, which can be important in certain statistical tests and modeling techniques that assume normality. By using both histograms and probability plots, we can have a thorough understanding of the normality of the features in the dataset.")
+            st.write("From the result of normality check it was found most of the features in dataset were highly skewed.")
+
+            st.write("- Thirdly, boxplots were utilized to check for the presence of outliers in all the features. A boxplot provides a graphical representation of the distribution of a feature by plotting the median, quartiles, and any outliers.")
+            st.write("From the boxplots, it was found most of the features contain outliers.")
+
+            header_html_data_im = "<img src='data:image/png;base64,{}' class='img-fluid' width='392.67' height='288' style='display: block;margin-left: 35px'>".format(
+                img_to_bytes("images/Projects Content/Customer Default/download.png")
+            )
+            st.markdown(
+                header_html_data_im, unsafe_allow_html=True,
+            )
+            st.write("")
+            st.write("Finally, using histogram it was determined that the target variable in our dataset is imbalanced. Specifically, there are more instances of customers who did not default compared to those who did default.")
+
+            st.markdown("<h3>Data Transformation</h3>", unsafe_allow_html=True)
+            st.write("")
+            st.markdown(
+                "<ul><li>Upon initial examination, it was found that there were no missing values in the dataset. However, a duplicate row was detected and was subsequently removed to maintain the accuracy of the data.</li>"
+                "<li>Subsequently, it was observed that all features in the dataset were heavily skewed and contained outliers. To address this issue, the Yeo-Johnson transformation was applied to correct the skewness and handle the outliers.</li>"
+                "<li>Thirdly, to handle imbalanced target variable, we will use StratifiedKFold cross validation technique during model training. </li>",
+                unsafe_allow_html=True)
+            st.write("")
+            header_html_data_aft = "<img src='data:image/png;base64,{}' class='img-fluid' width='512' height='281.75' style='display: block;margin-left: 35px'>".format(
+                img_to_bytes("images/Projects Content/Customer Default/Drawing7 (1).png")
+            )
+            st.markdown(
+                header_html_data_aft, unsafe_allow_html=True,
+            )
+            st.write("")
+            st.write("Issues which were found during EDA were handled in this section as shown in above plots.")
+
+            st.markdown("<h3>ML Model Building</h3>", unsafe_allow_html=True)
+            st.write("Given the nature of the problem, it was deemed a binary classification problem. To make predictions on the probability of customer default, "
+                     "both Logistic Regression and Random Forest models were utilized.")
+
+            st.markdown("<h4>a. Logistic Regression</h4>", unsafe_allow_html=True)
+            st.write("The sklearn function gridSearchCV was utilized to find the optimal value for the hyperparameter C. It was determined that a value of 0.01 gave the best AUC score. Additionally, to address the imbalanced nature of the target variable, StratifiedKFolds was employed, resulting in an AUC score of 0.844515.")
+            st.markdown("<h4>b. Random Forest</h4>", unsafe_allow_html=True)
+            st.write("The choice to use Random Forest was made because it is a tree-based algorithm, and it has a reputation for being capable of handling imbalanced data. Upon training the Random Forest algorithm, an AUC score of 0.81 was obtained.")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # TRY IT YOURSELF PROJECT
     if project_section == "TRY IT YOURSELF PROJECTS":
