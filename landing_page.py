@@ -246,13 +246,13 @@ if section == "PROJECTS":
                 unsafe_allow_html=True)
             st.write("")
             st.markdown("<p>For our project <b>XGB with undersampling</b> is best since if our model incorretly label 'stroke' does not affect patient that much rather being labeling 'non-stroke' in case of 'stroke'. Plus <b>XGB with undersampling</b> model correctly identiifies 81% of cases being 'stroke' when it is 'stroke'.</p>", unsafe_allow_html=True)
-            st.write("See the whole code here")
-            st.markdown("""
-                               <a href="https://github.com/kpola009/Stroke-Prediction" target = "_blank"> 
-                                   <button style="background-color:GreenYellow;">Github</button>
-                               </a>
-                           """, unsafe_allow_html=True)
-            st.write(" ")
+        st.write("See the whole code here")
+        st.markdown("""
+                           <a href="https://github.com/kpola009/Stroke-Prediction" target = "_blank"> 
+                               <button style="background-color:GreenYellow;">Github</button>
+                           </a>
+                       """, unsafe_allow_html=True)
+        st.write(" ")
 
 
         st.subheader("2. Segmenting Miami Areas")
@@ -349,13 +349,13 @@ if section == "PROJECTS":
             st.write("")
             st.write("Result: As from the map all the zipcodes which are similar based on their nearby venues are grouped into"
                      " same color.")
-            st.write("See the whole code here")
-            st.markdown("""
-                               <a href="https://github.com/kpola009/Miami-Area-Segmenting-with-K-Means" target = "_blank"> 
-                                   <button style="background-color:GreenYellow;">Github</button>
-                               </a>
-                           """, unsafe_allow_html=True)
-            st.write("")
+        st.write("See the whole code here")
+        st.markdown("""
+                           <a href="https://github.com/kpola009/Miami-Area-Segmenting-with-K-Means" target = "_blank"> 
+                               <button style="background-color:GreenYellow;">Github</button>
+                           </a>
+                       """, unsafe_allow_html=True)
+        st.write("")
 
         st.subheader("3. Customer Default Prediction")
         st.markdown(
@@ -458,19 +458,12 @@ if section == "PROJECTS":
             st.markdown("<h4>b. Random Forest</h4>", unsafe_allow_html=True)
             st.write("The choice to use Random Forest was made because it is a tree-based algorithm, and it has a reputation for being capable of handling imbalanced data. Upon training the Random Forest algorithm, an AUC score of 0.81 was obtained.")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        st.write("See the whole code here")
+        st.markdown("""
+                           <a href="https://github.com/kpola009/Customer-Default-Prediction" target = "_blank">
+                               <button style="background-color:GreenYellow;">Github</button>
+                           </a>
+                       """, unsafe_allow_html=True)
     # TRY IT YOURSELF PROJECT
     if project_section == "TRY IT YOURSELF PROJECTS":
         st.header("TRY IT YOURSELF PROJECTS")
