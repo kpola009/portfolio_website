@@ -137,22 +137,26 @@ if section == "EXPERIENCE":
 ## PROJECTS Section
 if section == "PROJECTS":
     #TODO think about this selectbox different type of projects
-    project_section = st.selectbox('PROJECTS NAVIGATOR', ["SIDE PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH",
-                                                "TRY IT YOURSELF PROJECTS"])
+    project_section = st.selectbox('PROJECTS NAVIGATOR', ["SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
     if project_section == "SIDE PROJECTS":
 
         #TODO think about the name of this type of projects
         st.header("Side Projects")
+
         st.subheader("1. Stroke Prediction")
+        stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
+                img_to_bytes("images/Projects Content/Thumbnails/stroke.png"))
         st.markdown(
-            "<ul><li>Built various ML Models such as DecisionTree Classifier and XGBoost Classifier with Undersampling, Oversampling, and SMOTE sampling technique to predict stroke in patient based on gender, age, smoking habit, and other existing conditions.</li>",
-            unsafe_allow_html=True)
+            stroke_prediction_thumbnail, unsafe_allow_html=True,
+        )
+        st.write("")
+        st.write("Built various ML Models such as DecisionTree Classifier and XGBoost Classifier with Undersampling, Oversampling, and SMOTE sampling technique to predict stroke in patient based on gender, age, smoking habit, and other existing conditions.")
 
         with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
             st.write("As per the Centre for Disease Control and Prevention website a stroke, sometimes also known as brain attack, occurs when something blocks blood supply to part of the brain or when a blood vessel in the brain bursts. Which can result into permanent or lasting damage into the brain, sometimes it also causes long-term disability, or even death. According to the World Health Organization stroke is 2nd leading cause of death globally, responsible for around 11% of total deaths.")
             st.write("Dataset: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset ")
-            st.write("In this project we are going to analyze and predict weather a patient is likely to get a stroke or not based on following input parameters: age, gender, hypertension, heart disease, ever married, work type, residence type, average glucose level, bmi, smoking status.")
+            st.write("In this project we are going to analyze and predict weather a patient is likely to get a stroke or not based on following input parameters: age, gender, hypertension, heart disease, ever married, work type, residence type, average glucose level, bmi, smoking status. The goal is to identify potential risk factors and provide a risk assessment for the individual, which can be used by healthcare professionals to take preventative measures and reduce the risk of stroke. It is important to note that the prediction should not be considered as a definite diagnosis and that a comprehensive medical evaluation by a healthcare professional is necessary to determine the presence of stroke or any other medical conditions.")
 
             st.markdown("<h3>Data Description</h3>", unsafe_allow_html=True)
             st.write("")
@@ -180,19 +184,15 @@ if section == "PROJECTS":
 
             st.markdown("<h3>Data Preparation</h3>", unsafe_allow_html=True)
             st.markdown(
-                "<ul><li>After examining the dataset, for feature 'bmi' 201 amount of  null values were found, to handle this null values all the records with feature"
-                " 'bmi' where feature 'stroke' has value of 0 was replaced with mean of all the records of feature"
-                " 'bmi' with feature 'stroke' value of 0 and the same technique was used for replacing null values for feature 'bmi' and the feature 'stroke' value of 1.</li>"
-                "<li>Also it was found that feature 'gender' had only 1 record of value 'other'. This record was dropped since it acts as a Outlier for "
-                "this dataset and it won't affect further analysis. </li>"
-                "<li>Plus, it was found, dataset contained 5 categorical features, which was converted into int using LabelEncoding.</li>"
-                "<li>Plus, it was found, target feature 'stroke' was highly imbalanced, to solve this problem different sampling techniques "
-                "like SMOTE, undersampling, oversampling were used. With predefined weights for Machine Learning Algorithm.</li></ul>",
+                "<ul><li>After analyzing the dataset, it was found that 201 records for the 'bmi' feature had null values. To handle these null values, the mean of all 'bmi' values was calculated where the 'stroke' feature had a value of 0. This mean value was then used to replace the null values in the corresponding records for the 'bmi' feature and 'stroke' value of 0. The same approach was used for replacing the null values of the 'bmi' feature where the 'stroke' value was 1.</li>"
+                "<li>Additionally, it was discovered that the 'gender' feature had only one record with a value of 'other.' This record was removed as it acted as an outlier in the dataset and would not have any significant impact on further analysis. </li>"
+                "<li>Furthermore, the dataset contained 5 categorical features which were transformed into numerical values using the Label Encoding technique.</li>"
+                "<li>Additionally, it was observed that the target feature 'stroke' was highly imbalanced. To address this issue, various sampling techniques such as SMOTE, undersampling, and oversampling were applied with predefined weights for the machine learning algorithm.</li></ul>",
                 unsafe_allow_html=True)
 
             st.markdown("<h3>EDA</h3>", unsafe_allow_html=True)
-            st.write("In EDA, relationship between features were examined, where relationship between non-categorical features were examined using "
-                     "correlation matrix and categorical features were examined using chi-square test.")
+            st.write("In the Exploratory Data Analysis (EDA), the relationships between the features were analyzed. The correlation between the non-categorical features was examined using a correlation matrix,"
+                     " while the relationships between the categorical features were analyzed using a chi-square test.")
             header_html_eda_corr = "<img src='data:image/png;base64,{}' class='img-fluid' width='358' height='284' style='display: block;margin-top: 10px; margin-left:150px'>".format(
                 img_to_bytes("images/Projects Content/Stroke Prediction/corr.png")
             )
@@ -200,7 +200,7 @@ if section == "PROJECTS":
                 header_html_eda_corr, unsafe_allow_html=True,
             )
             st.write("")
-            st.write("From the above graph we can infer apart from feature 'bmi' all the other continuous features are somewhat correlated to the 'stroke' where 'bmi' seems to have no linear correlation with 'stroke'.")
+            st.write("From the above graph, we can observe that all the continuous features (excluding 'bmi') appear to have some degree of correlation with the 'stroke' outcome. However, 'bmi' does not seem to have a linear correlation with 'stroke'.")
 
             header_html_eda_catcorr = "<img src='data:image/png;base64,{}' class='img-fluid' width='358' height='150' style='display: block;margin-top: 10px; margin-left:150px'>".format(
                 img_to_bytes("images/Projects Content/Stroke Prediction/catcorr.png")
@@ -209,13 +209,13 @@ if section == "PROJECTS":
                 header_html_eda_catcorr, unsafe_allow_html=True,
             )
             st.write("")
-            st.write("The result of chi-square test stats that there exists a relationship between two variables if p value <=0.5. "
-                     "So in our case apart from residence_type all the other features have p value less <= 0.5. "
-                     "so there is relationship between gender and stroke, ever_married and stroke, work_type and stroke, smoking status and stroke.")
+            st.write("The results of the chi-square test indicate that there is a relationship between two variables if the p-value "
+                     " is less than or equal to 0.5. In this case, all features (excluding residence type) have a p-value "
+                     " less than or equal to 0.5, indicating a relationship between the feature and 'stroke'. "
+                     " This includes a relationship between 'gender' and 'stroke', 'ever_married' and 'stroke', 'work_type' and 'stroke', and 'smoking status' and 'stroke'.")
 
             st.markdown("<h3>Machine Learning Algorithm Selection</h3>", unsafe_allow_html=True)
-            st.write("For this project DecisionTree Classifier and XGBoost Classifier Models were selected. "
-                     "Reason behind choosing this models is both of them are tree based classifiers which known to work great with Imbalanced dataset. ")
+            st.write("For this project, the Decision Tree Classifier and XGBoost Classifier models were selected. The reason for choosing these models is that they are both tree-based classifiers, which have been known to perform well on imbalanced datasets.")
 
             st.markdown("<h3>Results</h3>", unsafe_allow_html=True)
             st.write("To better understand results first I will define precision and recall")
@@ -236,29 +236,34 @@ if section == "PROJECTS":
                 unsafe_allow_html=True)
 
             st.markdown("<h3>Algorithm Selection Reasoning</h3>", unsafe_allow_html=True)
-            st.write("After analyzing performance of all the model, "
-                     "boiled down to XGB without sampling and XGB with undersampling Model. "
-                     "The other model were dicarded because either they were overfitting or they were poorly performing (Precision and Recall). "
-                     "The Selection between above two model is the perfect example of trade-off between precision and recall. Lets analyze in depth.")
+            st.write("After evaluating the performance of all the models, "
+                     " it was determined that the best models were XGBoost without sampling and XGBoost with undersampling. "
+                     " The other models were discarded because they either overfitted the data or had poor precision and recall scores. "
+                     " The choice between these two models illustrates the trade-off between precision and recall. "
+                     " Let's examine this in more detail.")
             st.markdown(
                 "<ul><li>For model <b>XGB without sampling</b> we have precision of 1.00 and recall of 0.11 for class 'stoke' meaning when our model predicts 'stroke' is correct 100% whereas it correctly identifies 11% of all cases being 'stroke' when it is 'stroke'.</li>"
-                "<li><b>For model <b>XGB with undersampling</b> we have precision of 0.15 and recall of 0.81 for class 'stroke' meaning when our model predicts 'stroke' is correct 15% of the times whereas it correctly identiifies 81% of cases being 'stroke' when it is 'stroke'</li>",
+                "<li>For model <b>XGB with undersampling</b> we have precision of 0.15 and recall of 0.81 for class 'stroke' meaning when our model predicts 'stroke' is correct 15% of the times whereas it correctly identiifies 81% of cases being 'stroke' when it is 'stroke'</li>",
                 unsafe_allow_html=True)
             st.write("")
-            st.markdown("<p>For our project <b>XGB with undersampling</b> is best since if our model incorretly label 'stroke' does not affect patient that much rather being labeling 'non-stroke' in case of 'stroke'. Plus <b>XGB with undersampling</b> model correctly identiifies 81% of cases being 'stroke' when it is 'stroke'.</p>", unsafe_allow_html=True)
-        st.write("See the whole code here")
+            st.markdown("<p>For this project, the <b>XGBoost model with undersampling</b> is considered to be the best model. This is because incorrect labeling of a 'non-stroke' case does not have a significant impact on the patient, compared to incorrect labeling of a 'stroke' case as 'non-stroke.' Additionally, the XGBoost model with undersampling correctly identifies 81% of cases as 'stroke' when it is actually 'stroke.'</p>", unsafe_allow_html=True)
+
         st.markdown("""
                            <a href="https://github.com/kpola009/Stroke-Prediction" target = "_blank"> 
-                               <button style="background-color:GreenYellow;">Github</button>
+                               <button style="background-color:GreenYellow;">See the whole code here</button>
                            </a>
                        """, unsafe_allow_html=True)
         st.write(" ")
-
+        st.write(" ")
 
         st.subheader("2. Segmenting Miami Areas")
+        stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
+            img_to_bytes("images/Projects Content/Thumbnails/miami.png"))
         st.markdown(
-            "<ul><li>The goal of this project is to build a K-Means clustering model to group Miami zipcodes based on nearby venue data.</li>",
-            unsafe_allow_html=True)
+            stroke_prediction_thumbnail, unsafe_allow_html=True,
+        )
+        st.write("")
+        st.write("The goal of this project is to build a K-Means clustering model to group Miami zipcodes based on nearby venue data.")
 
         with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
@@ -349,19 +354,25 @@ if section == "PROJECTS":
             st.write("")
             st.write("Result: As from the map all the zipcodes which are similar based on their nearby venues are grouped into"
                      " same color.")
-        st.write("See the whole code here")
+
         st.markdown("""
                            <a href="https://github.com/kpola009/Miami-Area-Segmenting-with-K-Means" target = "_blank"> 
-                               <button style="background-color:GreenYellow;">Github</button>
+                               <button style="background-color:GreenYellow;">See the whole code here</button>
                            </a>
                        """, unsafe_allow_html=True)
         st.write("")
+        st.write("")
 
         st.subheader("3. Customer Default Prediction")
+        stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
+            img_to_bytes("images/Projects Content/Thumbnails/default.png"))
         st.markdown(
-            "<ul><li>The Goal of this project is to predict how likely a customer is going to default, using historical customer data, This project can "
-            " be identified as binary classification problem, which was solved using Logistic Regression and Random Forest.</li>",
-            unsafe_allow_html=True)
+            stroke_prediction_thumbnail, unsafe_allow_html=True,
+        )
+        st.write("")
+        st.write("The Goal of this project is to predict how likely a customer is going to default, using historical customer data, This project can "
+            " be identified as binary classification problem, which was solved using Logistic Regression and Random Forest.")
+
         with st.expander("Project Report"):
             st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
             st.write("Customer loan defaults refer to the failure of a borrower to repay a loan according to the agreed-upon terms. "
@@ -458,17 +469,24 @@ if section == "PROJECTS":
             st.markdown("<h4>b. Random Forest</h4>", unsafe_allow_html=True)
             st.write("The choice to use Random Forest was made because it is a tree-based algorithm, and it has a reputation for being capable of handling imbalanced data. Upon training the Random Forest algorithm, an AUC score of 0.81 was obtained.")
 
-        st.write("See the whole code here")
         st.markdown("""
                            <a href="https://github.com/kpola009/Customer-Default-Prediction" target = "_blank">
-                               <button style="background-color:GreenYellow;">Github</button>
+                               <button style="background-color:GreenYellow;">See the whole code here</button>
                            </a>
                        """, unsafe_allow_html=True)
+
+
     # TRY IT YOURSELF PROJECT
     if project_section == "TRY IT YOURSELF PROJECTS":
         st.header("TRY IT YOURSELF PROJECTS")
 
         st.subheader("1. Pneumonia Classification using Chest X-ray Images")
+        stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
+            img_to_bytes("images/Projects Content/Thumbnails/pne.jpg"))
+        st.markdown(
+            stroke_prediction_thumbnail, unsafe_allow_html=True,
+        )
+
         st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
         st.write("The goal of this project is to classify if a person is suffering from pneumonia or not using chest X-Ray images"
                  ". This is a binary classification problem which was solved by training convolution neural network (CNN) and leveraging"
@@ -516,14 +534,22 @@ if section == "PROJECTS":
                 elif prediction == 0:
                     st.write(select_image + " PREDICTION: NORMAL")
 
-        st.write("See the whole code here")
         st.markdown("""
                            <a href="https://github.com/kpola009/Chest-X-Ray-Pneumonia-Classification-using-Pytorch-and-Tensorflow" target = "_blank"> 
-                               <button style="background-color:GreenYellow;">Github</button>
+                               <button style="background-color:GreenYellow;">See the whole code here</button>
                            </a>
                        """, unsafe_allow_html=True)
         st.write("")
+        st.write("")
+        st.write("")
+
         st.subheader("2. GAN (Generative Adversarial Network) (Paper2Code)")
+        stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
+            img_to_bytes("images/Projects Content/Thumbnails/gan.jpg"))
+        st.markdown(
+            stroke_prediction_thumbnail, unsafe_allow_html=True,
+        )
+
         st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
         st.write("As the name suggests, GAN are generative models which are built using an adversarial process, in which two models are built"
                  " simultaneously: a generative model G that captures the data distribution, and a discriminative model D that estimates the"
@@ -587,9 +613,8 @@ if section == "PROJECTS":
                     st.markdown(header_html_pro_image3_gan_result, unsafe_allow_html=True)
                     st.write("GENERATED IMAGE")
 
-        st.write("See the whole code here")
         st.markdown("""
                    <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank">
-                       <button style="background-color:GreenYellow;">Github</button>
+                       <button style="background-color:GreenYellow;">See the whole code here</button>
                    </a>
                """, unsafe_allow_html=True)
