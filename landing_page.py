@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import streamlit.components.v1 as components
-from constant import *
 from PIL import Image
 import base64
 from pathlib import Path
@@ -24,14 +23,10 @@ with st.sidebar:
 
     st.markdown("<h1>KETUL POLARA</h1>", unsafe_allow_html=True)
 
-    pages = ["ABOUT ME", "EDUCATION", "EXPERIENCE", "PROJECTS"]
-    section = st.sidebar.radio('', pages)  # this is my sidebar radio button widget
-
-    # hidden div with anchor
-    st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
+    pages = ["ABOUT ME", "EDUCATION/CERTIFICATIONS", "EXPERIENCE", "PROJECTS"]
+    section = st.sidebar.radio('', pages)
 
 if section == 'ABOUT ME':
-    # TODO thing about this description since you copied from sagar
     st.markdown("<h2>ABOUT ME</h2>", unsafe_allow_html=True)
     picture, content = st.columns([1, 1])
     with picture:
@@ -41,34 +36,70 @@ if section == 'ABOUT ME':
         st.markdown(
             header_html_my_picture, unsafe_allow_html=True,
         )
-    with content:
-        st.write(
-            "I am curiosity driven Data Scientist/Software Engineer with a demonstrated ability to deliver meaningful insights, make informed decisions, and solve challenging business problems by leveraging Statistics and advanced data-driven methods. Moreover, I am competent in programming language proficiency and statistical model development with proficiency in research.")
-        st.write("Name: Ketul Polara")
+        st.markdown("<h4>KETUL POLARA</h4>", unsafe_allow_html=True)
+        # st.markdown("<h4>KETUL POLARA</h4>", unsafe_allow_html=True)
         st.write("Email: kpola009@fiu.edu")
+    with content:
+        st.write("As a recent graduate with a background in Information Technology and a strong interest in Data Science. I have gained experience with programming, conducting research, designing, building, and deploying Machine Learning models, with Data Visualization, Data Analysis, and Statistics through working as Machine Learning Researcher at Energy Systems Research Laboratory (FIU) and from coursework. I possess the ability to uncover valuable insights, make well-informed decisions, and tackle complex business problems using statistical techniques and cutting-edge data-driven approaches.")
 
-    col1, col2 = st.columns([1, 1])
 
-    with col1:
+    col1, col2, col3 = st.columns([1, 1, 1])
+
+    with col2:
         st.markdown("""
-                   <a href="images/Resume Ketul Polara .pdf" target = "_blank"> 
+                   <a href="https://github.com/kpola009" target = "_blank"> 
                        <button style="background-color:GreenYellow;">Github</button> 
                    </a>
                """, unsafe_allow_html=True)
 
-    # TODO Add a function to download your resume
-    with col2:
+    with col1:
         st.markdown("""
                            <a href="https://github.com/kpola009/portfolio_website/blob/master/Resume%20Ketul%20Polara%20.pdf" target = "_blank"> 
                                <button style="background-color:GreenYellow;">Resume</button> 
                            </a>
                        """, unsafe_allow_html=True)
 
-    components.html(embed_component['linkedin'], height=310)
+    with col3:
+        st.markdown("""
+                           <a href="https://linkedin.com/in/ketul-polara" target = "_blank"> 
+                               <button style="background-color:GreenYellow;">LinkedIn</button> 
+                           </a>
+                       """, unsafe_allow_html=True)
 
-if section == 'EDUCATION':
+
+    st.write("")
+    st.write("")
+
+    st.markdown("<h3>Technical Skills & Tools</h3>", unsafe_allow_html=True)
+
+    col_pro1, col_pro2 = st.columns([2,3])
+
+    with col_pro1:
+        st.write("Programming Languages: ")
+        st.write("")
+        st.write("Machine Learning: ")
+        st.write("")
+        st.write("Deep Learning: ")
+        st.write("")
+        st.write("Data Visualization: ")
+        st.write("")
+        st.write("Others:")
+        st.write("")
+        st.write("Exposure: ")
+        st.write("")
+        st.write("Cloud: ")
+    with col_pro2:
+        st.button("Python | SQL | Java")
+        st.button("Scikit-Learn | Pandas | Numpy")
+        st.button("Tensorflow | Keras | PyTorch")
+        st.button("Matplotlib | Plotly | Seaborn")
+        st.button("Streamlit | Git | Excel")
+        st.button("Flask | Hadoop | Spark")
+        st.button("AWS (S3, EC2, SageMaker) | Azure (Data Lake, Data Factory)")
+
+if section == 'EDUCATION/CERTIFICATIONS':
     ### EDUCATION Section
-    st.markdown("<h2>EDUCATION</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>EDUCATION AND CERTIFICATIONS</h2>", unsafe_allow_html=True)
     st.write("")
     education_col1, education_col2 = st.columns([1,2])
 
@@ -109,6 +140,17 @@ if section == 'EDUCATION':
         st.write("January 2017 - December 2020")
         st.write("Relevant Coursework: Component Software Development, Intermediate Java Programming, Database Systems, Database Admin, Operating Systems, UNIX System Admin, Enterprise IT Troubleshoot, Web Application Programming, Website Construction and Management.")
 
+    st.markdown("<h2>CERTIFICATIONS</h2>", unsafe_allow_html=True)
+    st.markdown(
+        "<ul><li><b>IBM Data Science Professional</b>, IBM</li>"
+        "<li><b>Advanced Data Science Specialization</b>, IBM</li>"
+        "<li><b>Big Data Specialization</b>, University of San Diego</li>"
+        "<li><b>Deep Learning Specialization</b>, deeplearning.ai</li>"
+        "<li><b>Azure AI Fundamentals</b>, Microsoft</li></ul>",
+        unsafe_allow_html=True)
+
+
+
 ### EXPERIENCE Section
 if section == "EXPERIENCE":
     st.markdown("<h2>EXPERIENCE</h2>", unsafe_allow_html=True)
@@ -116,13 +158,20 @@ if section == "EXPERIENCE":
 
     experience_col1, experience_col2 = st.columns([1,2])
 
-    header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 150px'>".format(
+    header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 200px'>".format(
         img_to_bytes("images/Energy_Systems_Lab_Logo_Final-e1472763643607.png")
+    )
+    header_html_exp_1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 250px'>".format(
+        img_to_bytes("images/1577947253254.png")
     )
     with experience_col1:
 
         st.markdown(
             header_html_exp, unsafe_allow_html=True,
+        )
+
+        st.markdown(
+            header_html_exp_1, unsafe_allow_html=True,
         )
 
     with experience_col2:
@@ -134,10 +183,23 @@ if section == "EXPERIENCE":
                     "<li>Implemented Federated learning Framework Flower with ANN and CNN to detect DoS attacks on IoT devices.</li>"
                     "<li>Implemented Forecasting models for Load and Solar Power using LSTM and Transformer Model.</li></ul>", unsafe_allow_html=True)
 
+        st.markdown("<h2>Data Engineer, Intern </h2>", unsafe_allow_html=True)
+        st.markdown("<h4>Apexx Strategies</h4>", unsafe_allow_html=True)
+        st.write("Mar 2020 - Dec 2020")
+        st.markdown(
+            "<ul><li>Performed Data Collection (SQL), Data Cleaning (Python), and Data Visualization.</li>"
+            "<li>Develop deep understanding of the data sources, implement data standards, and maintain data quality.</li>"
+            "<li>Developed a pipeline to perform full loading of data from OLTP source to Azure Data Lake in CSV format using Azure Data Factory.</li></ul>",
+            unsafe_allow_html=True)
+
 ## PROJECTS Section
 if section == "PROJECTS":
     #TODO think about this selectbox different type of projects
     project_section = st.selectbox('PROJECTS NAVIGATOR', ["SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
+    if project_section == 'RESEARCH PROJECTS':
+        st.write("COMING SOON")
+    if project_section == 'ML FROM SCRATCH':
+        st.write("COMING SOON")
     if project_section == "SIDE PROJECTS":
 
         #TODO think about the name of this type of projects
