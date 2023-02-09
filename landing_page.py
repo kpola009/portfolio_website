@@ -195,20 +195,20 @@ if section == "EXPERIENCE":
 ## PROJECTS Section
 if section == "PROJECTS":
     #TODO think about this selectbox different type of projects
-    # project_section = st.selectbox('PROJECTS NAVIGATOR', ["SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
-    st.caption("Project Navigator")
-    b1, b2,b3,b4 = st.columns([1,1,1,1])
-    with b1:
-        b1_click = st.button("SIDE PROJECTS")
-    with b2:
-        b2_click = st.button("TRY IT YOURSELF PROJECTS")
-    with b3:
-        b3_click = st.button("RESEARCH PROJECTS")
-    with b4:
-        b4_click =st.button("ML FROM SCRATCH")
+    project_section = st.selectbox('PROJECTS NAVIGATOR', [" ","SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
+
+    # b1, b2,b3,b4 = st.columns([1,1,1,1])
+    # with b1:
+    #     b1_click = st.button("SIDE PROJECTS")
+    # with b2:
+    #     b2_click = st.button("TRY IT YOURSELF PROJECTS")
+    # with b3:
+    #     b3_click = st.button("RESEARCH PROJECTS")
+    # with b4:
+    #     b4_click =st.button("ML FROM SCRATCH")
 
 
-    if b1_click: ##== "SIDE PROJECTS":
+    if project_section == "SIDE PROJECTS":
 
         #TODO think about the name of this type of projects
         st.header("Side Projects")
@@ -547,7 +547,7 @@ if section == "PROJECTS":
 
 
     # TRY IT YOURSELF PROJECT
-    elif b2_click:
+    if project_section == 'TRY IT YOURSELF PROJECTS':
         st.header("TRY IT YOURSELF PROJECTS")
 
         st.subheader("1. Pneumonia Classification using Chest X-ray Images")
@@ -670,7 +670,7 @@ if section == "PROJECTS":
             )
 
             sleep(5)
-            if select_image is not None:
+            if select_image_gan is not None:
                 if select_image_gan == ' IMAGE 1':
                     st.markdown(header_html_pro_image1_gan_result, unsafe_allow_html=True)
                     st.write("GENERATED IMAGE")
@@ -689,7 +689,7 @@ if section == "PROJECTS":
                    </a>
                """, unsafe_allow_html=True)
 
-    elif b3_click:
+    if project_section == 'RESEARCH PROJECTS':
         st.write("COMING SOON")
-    elif b4_click:
+    if project_section == "ML FROM SCRATCH":
         st.write("COMING SOON")
