@@ -194,18 +194,8 @@ if section == "EXPERIENCE":
 
 ## PROJECTS Section
 if section == "PROJECTS":
-    #TODO think about this selectbox different type of projects
-    project_section = st.selectbox('PROJECTS NAVIGATOR', [" ","SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
 
-    # b1, b2,b3,b4 = st.columns([1,1,1,1])
-    # with b1:
-    #     b1_click = st.button("SIDE PROJECTS")
-    # with b2:
-    #     b2_click = st.button("TRY IT YOURSELF PROJECTS")
-    # with b3:
-    #     b3_click = st.button("RESEARCH PROJECTS")
-    # with b4:
-    #     b4_click =st.button("ML FROM SCRATCH")
+    project_section = st.selectbox('PROJECTS NAVIGATOR', [" ","SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
 
 
     if project_section == "SIDE PROJECTS":
@@ -689,7 +679,80 @@ if section == "PROJECTS":
                    </a>
                """, unsafe_allow_html=True)
 
+
+### RESEARCH PROJECTS
     if project_section == 'RESEARCH PROJECTS':
-        st.write("COMING SOON")
+        st.header("RESEARCH PROJECTS")
+
+        st.subheader("1. Short Term Load Forecasting")
+        load_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
+            img_to_bytes("images/Projects Content/Thumbnails/load.jpg"))
+        st.markdown(
+            load_thumbnail, unsafe_allow_html=True,
+        )
+
+        st.markdown("<b>Problem Statement: </b> Accurate load forecasting is crucial for energy providers to ensure "
+                    "that there is an adequate energy supply to meet the demand. The traditional methods "
+                    "of load forecasting, such as time-series analysis, have limitations and are often unable to account for changes in energy consumption patterns. ", unsafe_allow_html=True)
+        st.markdown("<b>Project Goal: </b> The goal of this research project is to forecast load, using historical load consumption data to train Artificial Neural Network which capture’s non-linear relationships and changing consumer patterns.", unsafe_allow_html=True)
+        st.markdown("Recently RNN’s have promised great results for forecasting problems but for this project I will try a different approach, The approach is defined more in detail in detailed report.", unsafe_allow_html=True)
+
+        with st.expander("Detailed Report"):
+            st.markdown("<h3>Introduction</h3>", unsafe_allow_html=True)
+            st.write("Load Forecasting the process of predicting future energy consumption for a customer or a region. For energy suppliers, load forecasting is an essential activity since it aids in planning and managing energy supply to meet demand. Energy suppliers may avoid overproduction or lack of energy, which can result in large financial losses and negatively affect consumers, with the help of accurate load forecasting. Despite its significance, load forecasting is still a difficult task because of extremely complicated and dynamic nature of energy consumption patterns. ")
+            st.write("The traditional techniques for load forecasting, such as time-series analysis, have limitations in capturing non-linear relationships and dynamic consumer patterns. Therefor there is need for more sophisticated approach to load forecasting, which can tackle limitations of tradition methods.")
+            st.write("Artificial Neural Networks (ANNs) are becoming increasingly popular in load forecasting due to their ability to handle complex and non-linear relationships in data. In load forecasting using ANNs, the input variables can include historical load data, weather data, and socio-economic data, while the output is the predicted load. For this project only historical load data will be used.")
+
+            st.markdown("<h3>Dataset</h3>", unsafe_allow_html=True)
+            st.write("The data was donated from Florida based utility company Florida Power and Light (fpl), to Energy Systems Research Laboratory. The dataset contains real load values of Miami for the year 1987, 1988, 1989, and 1990 in hourly timestamp.")
+
+            st.markdown("<h3>Approach</h3>", unsafe_allow_html=True)
+            st.write("In this project, we have load data from year 1987, 1988, 1989, and 1990. From which year 1987, 1988, and 1989 were used to train ANN model, and year 1990 was used to test the model.")
+            st.markdown("<h4>Steps</h4>", unsafe_allow_html=True)
+            st.markdown("<ul><li>Segmenting each year into seasons of Summer (April- September), Transition (October and March), and Winter (November – February).</li>"
+                "<li>Aggregating each season into one.</li>"
+                "<li>Further, a different ANN (ANN1, ANN2, ANN3) is trained for each segment, where the architecture of the ANN remained same but different features were used for each season segment. Feature description can be seen below.</li>"
+                "<li>Each ANN will forecast season segment for the year 1990.As shown in table below</li>"
+                "<li>Compare the model predictions with real load values of the year 1990.</li>",
+                unsafe_allow_html=True)
+            st.markdown("The whole approach can be seen in <i>Figure: 1</i>", unsafe_allow_html=True)
+
+            figure1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='350' style='display: block;margin-left:35px'>".format(
+                img_to_bytes("images/Projects Content/Load Forecasting/Drawing8.png"))
+            st.markdown(
+                figure1, unsafe_allow_html=True,
+            )
+            st.write(" ")
+            figure2 = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='250' style='display: block;margin-left:35px'>".format(
+                img_to_bytes("images/Projects Content/Load Forecasting/figure2.png"))
+            st.markdown(
+                figure2, unsafe_allow_html=True,
+            )
+            st.write(" ")
+            st.markdown("<b>Feature List:</b>", unsafe_allow_html=True)
+            st.markdown("<ul><li><b>AvgL(k-1): </b>Average Load of the previous day. </li>"
+                        "<li><b>sqr[MaxL(k-1)-AveL(k-1)]: </b>Square of the difference between maximum Load of previous day and average load of previous day. </li>"
+                        "<li><b>sqr[aveL(k-1)-minL(k-1)]: </b>Square of the difference between average load of previous day and min load of previous day. </li>"
+                        "<li><b>L(k-1,h): </b>System load of previous day at hour. </li>"
+                        "<li><b>L(k-1,8): </b>System load at 8 o’clock at previous day. </li>"
+                        "<li><b>Daytype: </b>Daytype represents day of the week to capture patterns during the week. </li>"
+                        "<li><b>L(k-1,24): </b>System load at 12 mid-night day earlier.</li>"
+                        "<li><b>Max L(k-1): </b>Maximum load of the day earlier. </li>"
+                        "<li><b>Min L(k-1): </b>Minimum load of the day earlier. </li>"
+                        "<li><b>L(k-7,h): </b>load at hour h, one week ago. </li>"
+                        "<li><b>Hourtype: </b>Hourtype represents hours during the day to capture patterns during the day. </li>",unsafe_allow_html=True)
+
+        st.markdown("""
+                           <a href="https://github.com/kpola009/Short-Term-Load-Forecasting" target = "_blank">
+                               <button style="background-color:GreenYellow;">See the whole code here</button>
+                           </a>
+                       """, unsafe_allow_html=True)
+
+
+
+
+
+
+
     if project_section == "ML FROM SCRATCH":
         st.write("COMING SOON")
