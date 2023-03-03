@@ -18,7 +18,7 @@ def load_img(img):
     im = Image.open(img)
     image = np.array(im)
     return image
-
+st.set_page_config(layout="wide")
 with st.sidebar:
 
     st.markdown("<h1>KETUL POLARA</h1>", unsafe_allow_html=True)
@@ -158,10 +158,10 @@ if section == "EXPERIENCE":
 
     experience_col1, experience_col2 = st.columns([1,2])
 
-    header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 200px'>".format(
+    header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 100px '>".format(
         img_to_bytes("images/Energy_Systems_Lab_Logo_Final-e1472763643607.png")
     )
-    header_html_exp_1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 250px'>".format(
+    header_html_exp_1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 190px'>".format(
         img_to_bytes("images/1577947253254.png")
     )
     with experience_col1:
@@ -195,15 +195,16 @@ if section == "EXPERIENCE":
 ## PROJECTS Section
 if section == "PROJECTS":
 
-    project_section = st.selectbox('PROJECTS NAVIGATOR', [" ","SIDE PROJECTS", "TRY IT YOURSELF PROJECTS", "RESEARCH PROJECTS", "ML FROM SCRATCH"])
+    project_section = st.selectbox('PROJECTS NAVIGATOR', [" ","TRY IT YOURSELF PROJECTS","SIDE PROJECTS","RESEARCH PROJECTS","ML FROM SCRATCH"])
 
 
     if project_section == "SIDE PROJECTS":
 
-        #TODO think about the name of this type of projects
+
         st.header("Side Projects")
 
         st.subheader("1. Stroke Prediction")
+        st.caption("Scikit learn | Sampling Techniques | XGBoost | Machine Learning")
         stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
                 img_to_bytes("images/Projects Content/Thumbnails/stroke.png"))
         st.markdown(
@@ -317,6 +318,7 @@ if section == "PROJECTS":
         st.write(" ")
 
         st.subheader("2. Segmenting Miami Areas")
+        st.caption("Scikit learn | Clustering | KMeans | Machine Learning")
         stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
             img_to_bytes("images/Projects Content/Thumbnails/miami.png"))
         st.markdown(
@@ -424,6 +426,7 @@ if section == "PROJECTS":
         st.write("")
 
         st.subheader("3. Customer Default Prediction")
+        st.caption("Scikit learn | Yeo-Johnson Transformation | Machine Learning")
         stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
             img_to_bytes("images/Projects Content/Thumbnails/default.png"))
         st.markdown(
@@ -541,6 +544,7 @@ if section == "PROJECTS":
         st.header("TRY IT YOURSELF PROJECTS")
 
         st.subheader("1. Pneumonia Classification using Chest X-ray Images")
+        st.caption("Tensorflow | PyTorch | CNN | Transfer Learning | Deep Learning")
         stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
             img_to_bytes("images/Projects Content/Thumbnails/pne.jpg"))
         st.markdown(
@@ -552,47 +556,47 @@ if section == "PROJECTS":
                  ". This is a binary classification problem which was solved by training convolution neural network (CNN) and leveraging"
                  " transfer learning.")
 
-        with st.expander("Try it yourself"):
-            st.write("Pneumonia is a kind of lung infection, that can cause mild to severe illness. By American Thoracic Society "
-                     " report, pneumonia is number 1 reason for US children in hospital. About 1 million adults seek care in for pneumonia "
-                     "every year, form which 50,000 people die due to pneumonia.")
-            st.write("Based on information from National heart, Lung, and Blood Institute pneumonia is diagnosed based on "
-                     "medical history, "
-                     " physical exam, and test result. Sometime it is hard to diagnose pneumonia due to pneumonia haveing same  symptoms as"
-                     " cold or flu which make problem worth solving.")
+        # with st.expander("TRY IT YOURSELF"):
+        st.write("Pneumonia is a kind of lung infection, that can cause mild to severe illness. By American Thoracic Society "
+                 " report, pneumonia is number 1 reason for US children in hospital. About 1 million adults seek care in for pneumonia "
+                 "every year, form which 50,000 people die due to pneumonia.")
+        st.write("Based on information from National heart, Lung, and Blood Institute pneumonia is diagnosed based on "
+                 "medical history, "
+                 " physical exam, and test result. Sometime it is hard to diagnose pneumonia due to pneumonia haveing same  symptoms as"
+                 " cold or flu which make problem worth solving.")
 
-            image1, image2, image3 = st.columns([1,1,1])
+        image1, image2, image3 = st.columns([1,1,1])
 
-            header_html_pro_image1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/Pneumonia Classification/IM-0187-0001.jpeg")
-            )
-            header_html_pro_image2 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/Pneumonia Classification/person1_bacteria_2.jpeg")
-            )
-            header_html_pro_image3 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/Pneumonia Classification/person2_bacteria_3.jpeg")
-            )
+        header_html_pro_image1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/Pneumonia Classification/IM-0187-0001.jpeg")
+        )
+        header_html_pro_image2 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/Pneumonia Classification/person1_bacteria_2.jpeg")
+        )
+        header_html_pro_image3 = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/Pneumonia Classification/person2_bacteria_3.jpeg")
+        )
 
-            with image1:
-                st.markdown(header_html_pro_image1, unsafe_allow_html=True)
-                st.write("IMAGE 1")
+        with image1:
+            st.markdown(header_html_pro_image1, unsafe_allow_html=True)
+            st.write("IMAGE 1")
 
-            with image2:
-                st.markdown(header_html_pro_image2, unsafe_allow_html=True)
-                st.write("IMAGE 2")
+        with image2:
+            st.markdown(header_html_pro_image2, unsafe_allow_html=True)
+            st.write("IMAGE 2")
 
-            with image3:
-                st.markdown(header_html_pro_image3, unsafe_allow_html=True)
-                st.write("IMAGE 3")
+        with image3:
+            st.markdown(header_html_pro_image3, unsafe_allow_html=True)
+            st.write("IMAGE 3")
 
-            select_image = st.selectbox('SELECT A IMAGE TO PREDICT', [' ','IMAGE 1', 'IMAGE 2', 'IMAGE 3'])
+        select_image = st.selectbox('SELECT A IMAGE TO PREDICT', [' ','IMAGE 1', 'IMAGE 2', 'IMAGE 3'])
 
-            if select_image is not None:
-                prediction = pneumonia_classification_model.classify_pneumonia(select_image)
-                if prediction == 1:
-                    st.write(select_image + " PREDICTION: PNEUMONIA")
-                elif prediction == 0:
-                    st.write(select_image + " PREDICTION: NORMAL")
+        if select_image is not None:
+            prediction = pneumonia_classification_model.classify_pneumonia(select_image)
+            if prediction == 1:
+                st.write(select_image + " PREDICTION: PNEUMONIA")
+            elif prediction == 0:
+                st.write(select_image + " PREDICTION: NORMAL")
 
         st.markdown("""
                            <a href="https://github.com/kpola009/Chest-X-Ray-Pneumonia-Classification-using-Pytorch-and-Tensorflow" target = "_blank"> 
@@ -604,6 +608,7 @@ if section == "PROJECTS":
         st.write("")
 
         st.subheader("2. GAN (Generative Adversarial Network) (Paper2Code)")
+        st.caption("Pytorch | Paper2Code")
         stroke_prediction_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
             img_to_bytes("images/Projects Content/Thumbnails/gan.jpg"))
         st.markdown(
@@ -618,60 +623,60 @@ if section == "PROJECTS":
                  " is trained such that, it correctly discriminates generated data by G. Result of this adversarial process"
                  " generates data which follows/similar to training data distribution.")
 
-        with st.expander("Try it yourself"):
-            st.caption(
-                "Since GAN can be computationally heavy, this might take little time to show the output, Plus we will reduced the dimension of the image to address the computation "
-                "time for this project.")
+        # with st.expander("TRY IT YOURSELF"):
+        st.caption(
+            "Since GAN can be computationally heavy, this might take little time to show the output, Plus we will reduced the dimension of the image to address the computation "
+            "time for this project.")
 
-            image1_gan, image2_gan, image3_gan = st.columns([1, 1, 1])
+        image1_gan, image2_gan, image3_gan = st.columns([1, 1, 1])
 
-            header_html_pro_image1_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/GAN/truck.jpeg")
-            )
-            header_html_pro_image2_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/GAN/DSC_0365-1000x543.jpg")
-            )
-            header_html_pro_image3_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/GAN/iss041e067595.jpg")
-            )
+        header_html_pro_image1_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/GAN/truck.jpeg")
+        )
+        header_html_pro_image2_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/GAN/DSC_0365-1000x543.jpg")
+        )
+        header_html_pro_image3_gan = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/GAN/iss041e067595.jpg")
+        )
 
-            with image1_gan:
-                st.markdown(header_html_pro_image1_gan, unsafe_allow_html=True)
-                st.write("IMAGE 1")
+        with image1_gan:
+            st.markdown(header_html_pro_image1_gan, unsafe_allow_html=True)
+            st.write("IMAGE 1")
 
-            with image2_gan:
-                st.markdown(header_html_pro_image2_gan, unsafe_allow_html=True)
-                st.write("IMAGE 2")
+        with image2_gan:
+            st.markdown(header_html_pro_image2_gan, unsafe_allow_html=True)
+            st.write("IMAGE 2")
 
-            with image3_gan:
-                st.markdown(header_html_pro_image3_gan, unsafe_allow_html=True)
-                st.write("IMAGE 3")
+        with image3_gan:
+            st.markdown(header_html_pro_image3_gan, unsafe_allow_html=True)
+            st.write("IMAGE 3")
 
-            select_image_gan = st.selectbox('SELECT A IMAGE TO PREDICT', [' ', ' IMAGE 1', ' IMAGE 2', ' IMAGE 3'])
+        select_image_gan = st.selectbox('SELECT A IMAGE TO PREDICT', [' ', ' IMAGE 1', ' IMAGE 2', ' IMAGE 3'])
 
-            header_html_pro_image2_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/GAN/download (1).png")
-            )
-            header_html_pro_image3_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/GAN/download (2).png")
-            )
-            header_html_pro_image1_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
-                img_to_bytes("images/Projects Content/GAN/download.png")
-            )
+        header_html_pro_image2_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/GAN/download (1).png")
+        )
+        header_html_pro_image3_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/GAN/download (2).png")
+        )
+        header_html_pro_image1_gan_result = "<img src='data:image/png;base64,{}' class='img-fluid' width='200' height='200' style='display: block;margin-top: 10px;'>".format(
+            img_to_bytes("images/Projects Content/GAN/download.png")
+        )
 
-            sleep(5)
-            if select_image_gan is not None:
-                if select_image_gan == ' IMAGE 1':
-                    st.markdown(header_html_pro_image1_gan_result, unsafe_allow_html=True)
-                    st.write("GENERATED IMAGE")
+        sleep(5)
+        if select_image_gan is not None:
+            if select_image_gan == ' IMAGE 1':
+                st.markdown(header_html_pro_image1_gan_result, unsafe_allow_html=True)
+                st.write("GENERATED IMAGE")
 
-                if select_image_gan == ' IMAGE 2':
-                    st.markdown(header_html_pro_image2_gan_result, unsafe_allow_html=True)
-                    st.write("GENERATED IMAGE")
+            if select_image_gan == ' IMAGE 2':
+                st.markdown(header_html_pro_image2_gan_result, unsafe_allow_html=True)
+                st.write("GENERATED IMAGE")
 
-                if select_image_gan == ' IMAGE 3':
-                    st.markdown(header_html_pro_image3_gan_result, unsafe_allow_html=True)
-                    st.write("GENERATED IMAGE")
+            if select_image_gan == ' IMAGE 3':
+                st.markdown(header_html_pro_image3_gan_result, unsafe_allow_html=True)
+                st.write("GENERATED IMAGE")
 
         st.markdown("""
                    <a href="https://github.com/kpola009/Paper2Code-GAN" target = "_blank">
@@ -685,6 +690,7 @@ if section == "PROJECTS":
         st.header("RESEARCH PROJECTS")
 
         st.subheader("1. Short Term Load Forecasting")
+        st.caption("Tensorflow | ANN | Scikit learn | Deep Learning")
         load_thumbnail = "<img src='data:image/png;base64,{}' class='img-fluid' width='600' height='300' style='display: block;margin-top:0px'>".format(
             img_to_bytes("images/Projects Content/Thumbnails/load.jpg"))
         st.markdown(
@@ -747,10 +753,6 @@ if section == "PROJECTS":
                                <button style="background-color:GreenYellow;">See the whole code here</button>
                            </a>
                        """, unsafe_allow_html=True)
-
-
-
-
 
 
 
