@@ -54,7 +54,7 @@ if section == 'ABOUT ME':
 
     with col1:
         st.markdown("""
-                           <a href="https://github.com/kpola009/portfolio_website/blob/master/Resume%20Ketul%20Polara.pdf" target = "_blank"> 
+                           <a href="https://github.com/kpola009/portfolio_website/blob/master/Ketul_Polara_Resume_Update.pdf" target = "_blank"> 
                                <button style="background-color:GreenYellow;">Resume</button> 
                            </a>
                        """, unsafe_allow_html=True)
