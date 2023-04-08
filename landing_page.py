@@ -156,12 +156,12 @@ if section == "EXPERIENCE":
     st.markdown("<h2>EXPERIENCE</h2>", unsafe_allow_html=True)
     st.write("")
 
-    experience_col1, experience_col2 = st.columns([1,2])
+    experience_col1, experience_col2 = st.columns([1,3])
 
-    header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 100px '>".format(
+    header_html_exp = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 170px '>".format(
         img_to_bytes("images/Energy_Systems_Lab_Logo_Final-e1472763643607.png")
     )
-    header_html_exp_1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 190px'>".format(
+    header_html_exp_1 = "<img src='data:image/png;base64,{}' class='img-fluid' width='160'  style='display: block;margin-top: 280px'>".format(
         img_to_bytes("images/1577947253254.png")
     )
     with experience_col1:
@@ -175,21 +175,21 @@ if section == "EXPERIENCE":
         )
 
     with experience_col2:
-        st.markdown("<h2>Machine Learning Researcher (GRA)</h2>", unsafe_allow_html=True)
+        st.markdown("<h2>Machine Learning Research Assistant</h2>", unsafe_allow_html=True)
         st.markdown("<h4>Energy Systems Research Laboratory (FIU)</h4>", unsafe_allow_html=True)
         st.write("August 2021 - Current")
-        st.markdown("<ul><li>Designed and developed Time-series database (InfluxDB) to capture data from 200 data points using RTI Data distributions service (Similar to Apache Kafka) for smart grid testbed.</li>"
-                    "<li>Using AWS SageMaker, S3, and SageMaker endpoint, trained and deployed Autoencoder and Isolation Forest Machine Learning models, in python for anomaly detection in smart grid testbed.</li>"
-                    "<li>Implemented Federated learning Framework Flower with ANN and CNN to detect DoS attacks on IoT devices.</li>"
-                    "<li>Implemented Forecasting models for Load and Solar Power using LSTM and Transformer Model.</li></ul>", unsafe_allow_html=True)
+        st.markdown("<ul><li>Anomaly Detection: Convolution Neural Network followed by LSTM algorithm for time-series fault detection, location, and classification on Transmission lines"
+                    "<ul><li>Carried out in-depth research on the use of deep learning in fault location and classification.</li><li>Created data collection (AWS IoT Core, S3) and data preprocessing (AWS EMR, S3) pipeline, trained CNN-LSTM (AWS SageMaker) model with accuracy of 93%, deployed trained model and Implemented inference pipeline (AWS SageMaker Endpoint)</li></ul></li>"
+                    "<li>Collaborated with peers to design and develop Time-series database (InfluxDB, MongoDB) to capture data from 200 data points using RTI Data distributions service (Similar to Apache Kafka) for smart grid testbed allowing simpler data collection with significantly smaller code base.</li>"
+                    "<li> Researched, designed and implemented a transformer-based hourly energy consumption and solar forecasting model on smart grid testbed, enabling optimal energy management</li></ul>", unsafe_allow_html=True)
 
         st.markdown("<h2>Data Engineer, Intern </h2>", unsafe_allow_html=True)
         st.markdown("<h4>Apexx Strategies</h4>", unsafe_allow_html=True)
         st.write("Mar 2020 - Dec 2020")
         st.markdown(
-            "<ul><li>Performed Data Collection (SQL), Data Cleaning (Python), and Data Visualization.</li>"
-            "<li>Develop deep understanding of the data sources, implement data standards, and maintain data quality.</li>"
-            "<li>Developed a pipeline to perform full loading of data from OLTP source to Azure Data Lake in CSV format using Azure Data Factory.</li></ul>",
+            "<ul><li>Maintained data quality by developing deep understanding of data sources, and implementing data standards, resulting in 30% reduction in data quality issues.</li>"
+            "<li>Developed a pipeline to perform full loading of data from OLTP source to Azure Data Lake in CSV format using Azure Data Factory, resulting in a 40% reduction in processing time.</li>"
+            "<li>Collaborated with data scientists to implement machine learning models resulting in a 15% increase in revenue.</li></ul>",
             unsafe_allow_html=True)
 
 ## PROJECTS Section
