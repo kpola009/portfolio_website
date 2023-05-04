@@ -89,11 +89,11 @@ if section == 'ABOUT ME':
         st.write("")
         st.write("Cloud: ")
     with col_pro2:
-        st.button("Python | SQL | Java")
-        st.button("Scikit-Learn | Pandas | Numpy")
+        st.button("Python | SQL | Java | R")
+        st.button("Scikit-Learn | XGBoost | Pandas | Numpy")
         st.button("Tensorflow | Keras | PyTorch")
         st.button("Matplotlib | Plotly | Seaborn")
-        st.button("Streamlit | Git | Excel")
+        st.button("Streamlit | Git | Excel | Docker")
         st.button("Flask | Hadoop | Spark")
         st.button("AWS (S3, EC2, SageMaker) | Azure (Data Lake, Data Factory)")
 
@@ -181,7 +181,8 @@ if section == "EXPERIENCE":
         st.markdown("<ul><li>Anomaly Detection: Convolution Neural Network followed by LSTM algorithm for time-series fault detection, location, and classification on Transmission lines"
                     "<ul><li>Carried out in-depth research on the use of deep learning in fault location and classification.</li><li>Created data collection (AWS IoT Core, S3) and data preprocessing (AWS EMR, S3) pipeline, trained CNN-LSTM (AWS SageMaker) model with accuracy of 93%, deployed trained model and Implemented inference pipeline (AWS SageMaker Endpoint)</li></ul></li>"
                     "<li>Collaborated with peers to design and develop Time-series database (InfluxDB, MongoDB) to capture data from 200 data points using RTI Data distributions service (Similar to Apache Kafka) for smart grid testbed allowing simpler data collection with significantly smaller code base.</li>"
-                    "<li> Researched, designed and implemented a transformer-based hourly energy consumption and solar forecasting model on smart grid testbed, enabling optimal energy management</li></ul>", unsafe_allow_html=True)
+                    "<li> Researched, designed and implemented a transformer-based hourly energy consumption and solar forecasting model on smart grid testbed, enabling optimal energy management</li>"
+                    "<li> Developed IoT Intrusion detection system using MobileNet and EfficientNet with Federated Learning as distributed training strategy, achieving 40% training throughput increase and improved model generalization.</li></ul>", unsafe_allow_html=True)
 
         st.markdown("<h2>Data Engineer, Intern </h2>", unsafe_allow_html=True)
         st.markdown("<h4>Apexx Strategies</h4>", unsafe_allow_html=True)
